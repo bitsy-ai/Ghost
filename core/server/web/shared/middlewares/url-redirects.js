@@ -54,15 +54,15 @@ _private.getAdminRedirectUrl = ({requestedHost, requestedUrl, queryParameters, s
     }
 
     // CASE: configured admin url is HTTPS, but request is HTTP
-    if (urlUtils.isSSL(adminUrl) && !secure) {
-        debug('redirect because protocol does not match');
+    // if (urlUtils.isSSL(adminUrl) && !secure) {
+    //     debug('redirect because protocol does not match');
 
-        return _private.redirectUrl({
-            redirectTo: adminUrl,
-            pathname: requestedUrl,
-            query: queryParameters
-        });
-    }
+    //     return _private.redirectUrl({
+    //         redirectTo: adminUrl,
+    //         pathname: requestedUrl,
+    //         query: queryParameters
+    //     });
+    // }
 };
 
 /**
@@ -76,15 +76,15 @@ _private.getFrontendRedirectUrl = ({requestedHost, requestedUrl, queryParameters
     debug('getFrontendRedirectUrl', requestedHost, requestedUrl, siteUrl);
 
     // CASE: configured canonical url is HTTPS, but request is HTTP, redirect to requested host + SSL
-    if (urlUtils.isSSL(siteUrl) && !secure) {
-        debug('redirect because protocol does not match');
+    // if (urlUtils.isSSL(siteUrl) && !secure) {
+    //     debug('redirect because protocol does not match');
 
-        return _private.redirectUrl({
-            redirectTo: `https://${requestedHost}`,
-            pathname: requestedUrl,
-            query: queryParameters
-        });
-    }
+    //     return _private.redirectUrl({
+    //         redirectTo: `https://${requestedHost}`,
+    //         pathname: requestedUrl,
+    //         query: queryParameters
+    //     });
+    // }
 };
 
 _private.redirect = (req, res, next, redirectFn) => {
