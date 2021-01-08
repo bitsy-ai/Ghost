@@ -42,16 +42,16 @@ _private.getAdminRedirectUrl = ({requestedHost, requestedUrl, queryParameters, s
     // If url and admin.url are not equal AND the requested host does not match, redirect.
     // The first condition is the most important, because it ensures that you have a custom admin url configured,
     // because we don't force an admin redirect if you have a custom url configured, but no admin url.
-    if (adminHost !== siteHost &&
-        adminHost !== requestedHost) {
-        debug('redirect because admin host does not match');
+    // if (adminHost !== siteHost &&
+    //     adminHost !== requestedHost) {
+    //     debug('redirect because admin host does not match');
 
-        return _private.redirectUrl({
-            redirectTo: adminUrl,
-            pathname: requestedUrl,
-            query: queryParameters
-        });
-    }
+    //     return _private.redirectUrl({
+    //         redirectTo: adminUrl,
+    //         pathname: requestedUrl,
+    //         query: queryParameters
+    //     });
+    // }
 
     // CASE: configured admin url is HTTPS, but request is HTTP
     // if (urlUtils.isSSL(adminUrl) && !secure) {
